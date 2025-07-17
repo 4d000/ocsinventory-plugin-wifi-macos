@@ -17,6 +17,7 @@ function extension_install_wifi()
             SSID VARCHAR(255) DEFAULT NULL,
             IP VARCHAR(255) DEFAULT NULL,
             MAC VARCHAR(255) DEFAULT NULL,
+	    created_on DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (ID, HARDWARE_ID)
         ) ENGINE=INNODB;"
     );
