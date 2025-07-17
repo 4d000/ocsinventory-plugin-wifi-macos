@@ -1,0 +1,12 @@
+{
+"displayName" : "Wifi Details MacOS",
+"author" : ["Adnan L."],
+"contributor" : [],
+"supportedAgent" : ["Unix"],
+"version" : "1",
+"licence" : "GPLv2",
+"description" : 
+    {
+        "en" : "Get Wifi details MacOS"
+    }
+}
