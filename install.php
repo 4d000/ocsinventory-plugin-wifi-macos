@@ -45,13 +45,17 @@ function extension_install_wifi()
 			INSERT INTO wifi_cleanup_queue (wifi_id)
 			VALUES (NEW.id);
 		END IF;
-      INSERT INTO wifi_cleanup_queue (wifi_id)
-      SELECT id
-      FROM wifi
-      WHERE SSID = NEW.SSID
-        AND hardware_id = NEW.hardware_id
-        AND id != NEW.ID
-        AND id NOT IN (SELECT wifi_id FROM wifi_cleanup_queue);
+	INSERT INTO wifi_cleanup_queue (wifi_id)
+	SELECT id
+	FROM wifi
+	WHERE id NOT IN (SELECT ID FROM hardware);
+      	INSERT INTO wifi_cleanup_queue (wifi_id)
+      	SELECT id
+      	FROM wifi
+      	WHERE SSID = NEW.SSID
+		AND hardware_id = NEW.hardware_id
+		AND id != NEW.ID
+		AND id NOT IN (SELECT wifi_id FROM wifi_cleanup_queue);
     END;
     ";
     $commonObject->sqlQuery($triggerSQL);
