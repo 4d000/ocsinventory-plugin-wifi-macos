@@ -48,7 +48,7 @@ function extension_install_wifi()
 	INSERT INTO wifi_cleanup_queue (wifi_id)
 	SELECT id
 	FROM wifi
-	WHERE id NOT IN (SELECT ID FROM hardware);
+	WHERE hardware_id NOT IN (SELECT ID FROM hardware);
       	INSERT INTO wifi_cleanup_queue (wifi_id)
       	SELECT id
       	FROM wifi
